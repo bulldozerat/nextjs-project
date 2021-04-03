@@ -24,13 +24,20 @@ export async function getStaticProps(context) {
   };
 }
 
+// tells next for which params should pre-render the page
 export async function getStaticPaths() {
+  const listWithPregeneratedIds = [
+    {
+      pid: '1',
+      pid: '2',
+      pid: '3',
+    },
+  ];
+
   return {
-    paths: [
-      {
-        params: [{ pid: 'p1' }],
-      },
-    ],
-    fallback: false,
+    paths: listWithPregeneratedIds,
+    fallback: 'blocking',
+    // are there more paths than these paths. If false another id will go to 404 page
+    // if set to blocking it will wait and send the whole html (no loading)
   };
 }

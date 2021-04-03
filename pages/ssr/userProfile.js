@@ -1,6 +1,15 @@
+import Head from 'next/head';
+
 function UserProfile(props) {
   console.log('props: ', props);
-  return <h1>{props.username}</h1>;
+  return (
+    <>
+      <Head>
+        <title>Test title</title>
+      </Head>
+      <h1>{props.username}</h1>
+    </>
+  );
 }
 
 export default UserProfile;
