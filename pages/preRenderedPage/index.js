@@ -1,3 +1,5 @@
+import dummyProducts from '../../dummyData/dummyProducts';
+
 export default function PreRenderedPage({ products }) {
   return (
     <div>
@@ -26,16 +28,7 @@ export async function getStaticProps(context) {
 
   return {
     props: {
-      products: [
-        {
-          id: 1,
-          title: 'first product',
-        },
-        {
-          id: 2,
-          title: 'second product',
-        },
-      ],
+      products: dummyProducts,
     },
     revalidate: 60, // rebuilds each 60 seconds when build
   };
