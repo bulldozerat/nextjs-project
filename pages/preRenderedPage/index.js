@@ -1,20 +1,20 @@
 import dummyProducts from '../../dummyData/dummyProducts';
 
-export default function PreRenderedPage({ products }) {
-  return (
-    <div>
-      {products.map((product) => (
-        <h1 key={product.id}>{product.title}</h1>
-      ))}
-      324
-    </div>
-  );
+export default function PreRenderedPage({ wolverineData }) {
+  return <div>{wolverineData.name}</div>;
 }
 
 // getStaticProps tells Next to pre-render the page in advance
 export async function getStaticProps(context) {
-  console.log('re-generating page');
-  console.log(context);
+  const wolverineData = await (
+    await fetch('https://superheroapi.com/api.php/2481591191854227/search/wolverine')
+  ).json();
+
+  if (!wolverineData.results[0]) {
+    return {
+      notFound: true, // true or false. if true returns the 404 page.
+    };
+  }
 
   // return {
   //   redirect: {
@@ -22,13 +22,9 @@ export async function getStaticProps(context) {
   //   },
   // };
 
-  // return {
-  //   notFound: true, // true or false. if true returns the 404 page.
-  // };
-
   return {
     props: {
-      products: dummyProducts,
+      wolverineData: wolverineData.results[0],
     },
     revalidate: 60, // rebuilds each 60 seconds when build
   };
