@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Image from 'next/image';
 
 function UserProfile(props) {
   console.log('props: ', props);
@@ -7,6 +8,7 @@ function UserProfile(props) {
       <Head>
         <title>Test title</title>
       </Head>
+      <Image src='/img.jpg' alt='test' width='300' height='300' />
       <h1>{props.username}</h1>
     </>
   );

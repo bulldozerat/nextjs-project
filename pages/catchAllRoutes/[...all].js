@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 
-export default function PdpPage() {
+export default function CatchAllRoutes() {
   const router = useRouter();
 
   console.log('router: ', router);

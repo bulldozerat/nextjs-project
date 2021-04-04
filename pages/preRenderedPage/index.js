@@ -1,7 +1,18 @@
-import dummyProducts from '../../dummyData/dummyProducts';
+import { useRef } from 'react';
 
 export default function PreRenderedPage({ wolverineData }) {
-  return <div>{wolverineData.name}</div>;
+  const inputRef = useRef();
+
+  const logKey = () => {
+    console.log(inputRef.current.value);
+  };
+
+  return (
+    <>
+      <input ref={inputRef} onChange={() => logKey()} />
+      <div>{wolverineData.name}</div>
+    </>
+  );
 }
 
 // getStaticProps tells Next to pre-render the page in advance

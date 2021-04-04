@@ -25,6 +25,7 @@ export async function getStaticProps(context) {
 }
 
 // tells next for which params should pre-render the page
+// TODO research more
 export async function getStaticPaths() {
   const listWithPregeneratedIds = [
     {
