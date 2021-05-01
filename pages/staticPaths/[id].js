@@ -1,5 +1,3 @@
-import dummyProducts from '../../dummyData/dummyProducts';
-
 export default function staticPathsHTML({ product }) {
   return (
     <div>
@@ -11,9 +9,9 @@ export default function staticPathsHTML({ product }) {
 
 // pregenerated page durring the build process
 export async function getStaticProps(context) {
-  console.log('context: ', context);
   const productId = context.params.id;
-  const product = dummyProducts.find((pr) => pr.id === productId);
+  const products = await fetch('http://localhost:3000/api/products').then((response) => response.json());
+  const product = products.list.find((pr) => pr.id === productId);
 
   return {
     props: {
