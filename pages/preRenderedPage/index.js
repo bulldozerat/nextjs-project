@@ -15,7 +15,7 @@ export default function PreRenderedPage({ wolverineData }) {
   );
 }
 
-// getStaticProps tells Next to pre-render the page in advance
+// getStaticProps tells Next to pre-render the page in advance (pregenerated page durring the build process)
 export async function getStaticProps(context) {
   const wolverineData = await (
     await fetch('https://superheroapi.com/api.php/2481591191854227/search/wolverine')

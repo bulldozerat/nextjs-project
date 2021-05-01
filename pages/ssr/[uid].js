@@ -9,7 +9,7 @@ function UserProfile(props) {
 
 export default UserProfile;
 
-// ssr no pre-generate
+// ssr no pre-generate (each request)
 export async function getServerSideProps(context) {
   const { params, req, res } = context;
 
