@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import H1 from '@/components/H1';
 
 export default function PdpPage() {
   const router = useRouter();
@@ -9,6 +10,7 @@ export default function PdpPage() {
 
   return (
     <>
+      <H1 text='text' />
       <h1>nested id</h1>
     </>
   );
