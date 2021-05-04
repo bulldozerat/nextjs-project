@@ -5,16 +5,17 @@ import Link from 'next/link';
 export default function PDP() {
   useEffect(() => {
     // Shallow routing (change URL without running data fetching methods again)
-    router.push('pdp/?counter=10', undefined, { shallow: true });
+    push('pdp/?counter=10', undefined, { shallow: true });
   }, []);
 
-  const router = useRouter();
+  const { defaultLocale, locales, locale, push } = useRouter();
 
+  console.log('locales: ', defaultLocale, locales, locale);
   return (
     <>
       <h1>{process.env.NEXT_PUBLIC_FOR_BROWSER_USER}</h1>
       <Link href='/'>Link</Link>
-      <div onClick={() => router.push('/')}>Router link</div>
+      <div onClick={() => push('/')}>Router link</div>
     </>
   );
 }
