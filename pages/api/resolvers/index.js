@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 export const resolvers = {
   Query: {
     getUsers: async () => {
@@ -14,7 +12,7 @@ export const resolvers = {
         throw error;
       }
     },
-    getUser: async (_, args) => {
+    getUser: async (parent, args, context, info) => {
       try {
         const user = await fetch(`https://api.github.com/users/${args.name}`).then((response) => response.json());
         return {
