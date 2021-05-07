@@ -1,0 +1,19 @@
+{
+    "books": [
+        {
+            "title": "The Awakening",
+            "author": "Kate Chopin",
+            "branch": "riverside"
+        },
+        {
+            "title": "City of Glass",
+            "author": "Paul Auster",
+            "branch": "downtown"
+        },
+        {
+            "title": "My New Book",
+            "author": "Mihail",
+            "branch": "New Branch"
+        }
+    ]
+}
